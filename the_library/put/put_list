@@ -1,0 +1,8 @@
+putchar 		fait 
+putstr			fait
+putendl
+putnbr			fait 
+putchar_fd		fait	
+putstr_fd		fait
+putendl_fd
+putnbr_fd		fait

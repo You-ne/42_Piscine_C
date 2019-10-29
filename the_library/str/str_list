@@ -1,0 +1,28 @@
+strlen		fait
+strdup
+strcpy		fait
+strncpy		fait
+strcat		fait
+strncat		fait
+strlcat		fait
+strchr
+strrchr
+strstr		fait
+strnstr
+strcmp		fait	
+strncmp		fait
+
+strnew		fait
+strdel		fait
+strclr
+striter
+striteri
+strmap
+strmapi
+strequ
+strnequ
+strsub
+strjoin
+strtrim
+strsplit	a revoir
+

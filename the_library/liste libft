@@ -1,0 +1,77 @@
+Total : 58
+
+LIBC:
+
+bzero		fait
+memset		fait
+memcpy		fait
+memccpy		fait
+memove
+memchr		fait
+memcmp		fait
+
+strlen		fait
+strdup		fait
+strcpy		fait
+strncpy		fait
+strcat		fait
+strncat		fait
+strlcat		fait
+strchr
+strrchr
+strstr		fait
+strnstr
+strcmp		fait
+strncmp		fait
+
+atoi		a verifier (signe)
+
+isaplha		fait
+isdigit		fait
+isalnum		fait
+isascii		fait
+isprint		fait
+
+toupper		fait
+tolower		fait
+
+BONUS:
+
+putchar		fait
+putstr		fait
+putendl
+putnbr		fait
+putchar_fd	fait
+putstr_fd	fait
+putendl_fd
+putnbr_fd	fait
+
+itoa
+
+memalloc	fait
+memdel		fait
+
+strnew		fait
+strdel		fait
+strclr
+striter
+striteri
+strmap
+strmapi
+strequ
+strnequ
+strsub
+strjoin
+strtrim
+strsplit	a revoir
+
+LISTES:
+
+lstnew
+lstdelone
+lstdelq
+lstadd
+lstiter
+lstmap
+
+
