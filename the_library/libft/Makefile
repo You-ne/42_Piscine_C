@@ -6,13 +6,13 @@
 #    By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/29 21:03:36 by yotillar          #+#    #+#              #
-#    Updated: 2019/10/29 21:25:51 by yotillar         ###   ########.fr        #
+#    Updated: 2019/10/30 12:44:54 by yotillar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -Iinclude
 
 SRCS = ft_atoi.c \
        ft_isalnum.c \

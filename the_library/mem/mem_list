@@ -1,9 +1,0 @@
-bzero		fait 
-memset		fait
-memalloc	fait
-memdel		fait
-memcpy		fait
-memccpy		fait
-memove
-memchr		fait
-memcmp		fait

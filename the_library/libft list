@@ -1,0 +1,61 @@
+MANDATORY:
+
+libc:
+
+bzero		fait
+memset		fait
+memcpy		fait
+memccpy		fait
+memmove		fait
+memchr		fait
+memcmp		fait
+
+strlen		fait
+strlcpy		fait
+strlcat		fait
+strchr		fait
+strrchr		fait
+strnstr		fait
+strncmp		fait
+
+atoi		fait a revoir
+
+isalpha		fait		
+isdigit		fait
+isalnum		fait
+isascii		fait
+isprint		fait
+toupper		fait
+tolower		fait
+
+calloc
+strdup		fait
+
+additional:
+
+substr
+strjoin		fait
+strtrim
+split		fait
+itoa
+strmapi
+putchar fd	fait
+putstr fd	fait
+putendl fd	fait
+putnbr fd	fait
+
+BONUS:
+
+lstnew
+lstadd front
+lstsize
+lstlast
+lstadd back
+lstdelone
+lstclear
+lstiter
+lstmap
+
+
+
+
