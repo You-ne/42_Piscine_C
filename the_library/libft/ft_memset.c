@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin </var/spool/mail/ivann>             +#+  +:+       +#+        */
+/*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/28 20:42:13 by marvin            #+#    #+#             */
-/*   Updated: 2019/10/29 21:29:41 by yotillar         ###   ########.fr       */
+/*   Created: 2019/11/01 20:31:15 by yotillar          #+#    #+#             */
+/*   Updated: 2019/11/01 20:31:24 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "libft.h"
 
-void	*memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char *p;
 

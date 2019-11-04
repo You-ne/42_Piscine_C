@@ -6,13 +6,13 @@
 /*   By: marvin </var/spool/mail/ivann>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/28 21:15:47 by marvin            #+#    #+#             */
-/*   Updated: 2019/09/28 21:17:37 by marvin           ###   ########.fr       */
+/*   Updated: 2019/11/01 20:54:46 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	ft_memset(s, 0, n);
 }

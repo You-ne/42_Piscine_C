@@ -6,9 +6,11 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 17:44:15 by yotillar          #+#    #+#             */
-/*   Updated: 2019/10/28 17:47:54 by yotillar         ###   ########.fr       */
+/*   Updated: 2019/11/01 20:48:33 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isalnum(int c)
 {
