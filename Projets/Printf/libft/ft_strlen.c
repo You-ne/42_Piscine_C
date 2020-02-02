@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_data.c                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yotillar <yotilar@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/01 17:52:44 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/02 06:21:49 by yotillar         ###   ########.fr       */
+/*   Created: 2019/09/28 21:28:05 by yotillar          #+#    #+#             */
+/*   Updated: 2020/01/16 18:59:16 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ft_printf.h"
+#include "libft.h"
 
-
-void	ft_init(t_data *d)
+size_t		ft_strlen(const char *s)
 {
-	d->b_i = 0;
-	while (d->b_i < 128)
-	{
-		d->buff[d->b_i] = '\0';
-		d->b_i++;
-	}
-	d->prec = 0;
-	d->wid = 0;
-	d->pad = 0;
-	d->left = 0;
-	d->b_i = 0;
-	d->f_i = 0;
-	return;
+	size_t	len;
+
+	len = 0;
+	while (*s++)
+		len++;
+	return (len);
 }
-
-

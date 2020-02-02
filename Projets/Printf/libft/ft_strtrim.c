@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_buff.c                                          :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/01 19:02:53 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/02 06:21:46 by yotillar         ###   ########.fr       */
+/*   Created: 2020/01/06 19:30:15 by yotillar          #+#    #+#             */
+/*   Updated: 2020/01/16 18:58:34 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ft_printf.h"
+#include "libft.h"
 
-void	ft_buffing(char *str, t_data *d, unsigned long len)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	while (len > 0)
-	{
-		while (len > 0 && d->b_i < 127)
-		{
-			d->buff[d->b_i] = *str;
-			d->b_i++;
-			str++;
+	size_t	start;
+	size_t	len;
+
+	if (!s1 || !set)
+		return (NULL);
+	start = 0;
+	while (s1[start] && ft_strchr(set, s1[start]) != 0)
+		start++;
+	len = ft_strlen(&s1[start]);
+	if (len != 0)
+		while (s1[start + len - 1]
+			&& ft_strchr(set, s1[start + len - 1]) != 0)
 			len--;
-		}
-		if (d->b_i == 127)
-		{
-			write(1, &d->buff, 127);
-			while (d->b_i > 0)
-			{
-				d->buff[d->b_i] = '\0';
-				d->b_i--;
-			}
-		}
-	}
+	return (ft_substr(s1, start, len));
 }

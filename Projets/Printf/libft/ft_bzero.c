@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_data.c                                          :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yotilar <yotillar@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/01 17:52:44 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/02 06:21:49 by yotillar         ###   ########.fr       */
+/*   Created: 2019/09/28 21:15:47 by yotillar          #+#    #+#             */
+/*   Updated: 2020/01/07 22:53:49 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ft_printf.h"
+#include "libft.h"
 
-
-void	ft_init(t_data *d)
+void	ft_bzero(void *s, size_t n)
 {
-	d->b_i = 0;
-	while (d->b_i < 128)
-	{
-		d->buff[d->b_i] = '\0';
-		d->b_i++;
-	}
-	d->prec = 0;
-	d->wid = 0;
-	d->pad = 0;
-	d->left = 0;
-	d->b_i = 0;
-	d->f_i = 0;
-	return;
+	ft_memset(s, 0, n);
 }
-
-

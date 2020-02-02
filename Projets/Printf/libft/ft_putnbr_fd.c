@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_buff.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/01 19:02:53 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/02 06:21:46 by yotillar         ###   ########.fr       */
+/*   Created: 2019/09/28 04:44:25 by yotillar          #+#    #+#             */
+/*   Updated: 2020/01/13 19:38:19 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ft_printf.h"
+#include "libft.h"
 
-void	ft_buffing(char *str, t_data *d, unsigned long len)
+void	ft_putnbr_fd(int n, int fd)
 {
-	while (len > 0)
+	unsigned int nb;
+
+	if (fd < 0)
+		return ;
+	nb = n;
+	if (n < 0)
 	{
-		while (len > 0 && d->b_i < 127)
-		{
-			d->buff[d->b_i] = *str;
-			d->b_i++;
-			str++;
-			len--;
-		}
-		if (d->b_i == 127)
-		{
-			write(1, &d->buff, 127);
-			while (d->b_i > 0)
-			{
-				d->buff[d->b_i] = '\0';
-				d->b_i--;
-			}
-		}
+		ft_putchar_fd('-', fd);
+		nb = n * -1;
 	}
+	if (nb >= 10)
+		ft_putnbr_fd(nb / 10, fd);
+	ft_putchar_fd(nb % 10 + 48, fd);
 }

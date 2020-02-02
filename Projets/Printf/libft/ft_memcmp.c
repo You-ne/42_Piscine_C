@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_buff.c                                          :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/01 19:02:53 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/02 06:21:46 by yotillar         ###   ########.fr       */
+/*   Created: 2019/10/07 01:30:13 by yotillar          #+#    #+#             */
+/*   Updated: 2019/10/07 01:37:47 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ft_printf.h"
+#include "libft.h"
 
-void	ft_buffing(char *str, t_data *d, unsigned long len)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	while (len > 0)
+	unsigned char *mem1;
+	unsigned char *mem2;
+
+	mem1 = (unsigned char*)s1;
+	mem2 = (unsigned char*)s2;
+	while (n > 0 && *mem1 == *mem2)
 	{
-		while (len > 0 && d->b_i < 127)
-		{
-			d->buff[d->b_i] = *str;
-			d->b_i++;
-			str++;
-			len--;
-		}
-		if (d->b_i == 127)
-		{
-			write(1, &d->buff, 127);
-			while (d->b_i > 0)
-			{
-				d->buff[d->b_i] = '\0';
-				d->b_i--;
-			}
-		}
+		mem1++;
+		mem2++;
+		n--;
 	}
+	if (n == 0)
+		return (0);
+	else
+		return (*mem1 - *mem2);
 }

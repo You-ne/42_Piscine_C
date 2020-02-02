@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_buff.c                                          :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/01 19:02:53 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/02 06:21:46 by yotillar         ###   ########.fr       */
+/*   Created: 2020/01/06 20:32:02 by yotillar          #+#    #+#             */
+/*   Updated: 2020/01/08 19:02:56 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ft_printf.h"
+#include "libft.h"
 
-void	ft_buffing(char *str, t_data *d, unsigned long len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	while (len > 0)
+	char			*str;
+	unsigned int	i;
+	int				size;
+
+	if (s && f)
 	{
-		while (len > 0 && d->b_i < 127)
+		i = 0;
+		size = ft_strlen((char *)s);
+		if (!(str = (char*)malloc((size + 1) * sizeof(char))))
+			return (NULL);
+		while (s[i])
 		{
-			d->buff[d->b_i] = *str;
-			d->b_i++;
-			str++;
-			len--;
+			str[i] = f(i, s[i]);
+			i++;
 		}
-		if (d->b_i == 127)
-		{
-			write(1, &d->buff, 127);
-			while (d->b_i > 0)
-			{
-				d->buff[d->b_i] = '\0';
-				d->b_i--;
-			}
-		}
+		str[i] = '\0';
+		return (str);
 	}
+	return (NULL);
 }

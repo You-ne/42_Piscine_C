@@ -6,16 +6,19 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 17:36:11 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/02 05:43:41 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/02/02 06:21:52 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-
+void	ft_get_flags
+{
+	static 
+}
 void	ft_dispatch(const char *format, t_data *d)
 {
-	static char		conv[NB_SPECS] = {'c', 's', 'p', 'd', 'i', 'u', 'x', 'X'}
+	static char		conv[NB_SPECS] = {'c', 's', 'p', 'd', 'i', 'u', 'x', 'X'};
 	static char		*(*TabF[NB_SPECS])(t_specs) =
 }
 
