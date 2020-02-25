@@ -6,7 +6,7 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 22:18:45 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/25 03:28:59 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/02/25 23:35:08 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int 	ft_check(t_data *d)
 		ft_check_width(d);
 		ft_check_prec(d);
 	}
-	if (FI == ft_strlen(FMT) ||(FMT[FI] != 'd' && FMT[FI] != 'i'
+	if (FI == ft_strlen(FMT) || (FMT[FI] != 'd' && FMT[FI] != 'i'
 		&& FMT[FI] != 'u' && FMT[FI] != 'c' && FMT[FI] != 's'
 		&& FMT[FI] != 'p' && FMT[FI] != 'x' && FMT[FI] != 'X')
 		return (-1);
