@@ -1,23 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_convert_base2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yotillar <yotilar@student.42.fr>           +#+  +:+       +#+        */
+/*   By: yotillar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/28 21:28:05 by yotillar          #+#    #+#             */
-/*   Updated: 2020/01/16 18:59:16 by yotillar         ###   ########.fr       */
+/*   Created: 2019/09/17 19:25:14 by yotillar          #+#    #+#             */
+/*   Updated: 2020/02/04 21:05:27 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlen(const char *s)
+int			len_dest(long nbr, int len_to)
 {
-	size_t	len;
+	int		len;
+	long	nb;
+
+	nb = nbr;
+	len = 0;
+	if (nb < 0)
+		nb *= -1;
+	while (nb >= len_to)
+	{
+		len++;
+		nb /= len_to;
+	}
+	len++;
+	if (nbr < 0)
+		len++;
+	return (len);
+}
+
+int			ft_len(char *str)
+{
+	int		len;
 
 	len = 0;
-	while (*s++)
+	while (str[len])
 		len++;
 	return (len);
 }
