@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_data.c                                          :+:      :+:    :+:   */
+/*   ft_conv_s.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/01 17:52:44 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/02 06:21:49 by yotillar         ###   ########.fr       */
+/*   Created: 2020/02/23 14:03:12 by yotillar          #+#    #+#             */
+/*   Updated: 2020/02/23 14:21:48 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-
-void	ft_init(t_data *d)
+int		ft_s_spec(t_data *d)
 {
-	d->b_i = 0;
-	while (d->b_i < 128)
-	{
-		d->buff[d->b_i] = '\0';
-		d->b_i++;
-	}
-	d->prec = 0;
-	d->wid = 0;
-	d->pad = 0;
-	d->left = 0;
-	d->b_i = 0;
-	d->f_i = 0;
-	return;
+	f->arg = va_arg(d->args, char*);
+	ft_handler_char(t_data *d);
+	return (0);
 }
-
-

@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   testmain.c                                         :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/28 17:20:08 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/25 05:45:24 by yotillar         ###   ########.fr       */
+/*   Created: 2019/10/07 02:53:55 by yotillar          #+#    #+#             */
+/*   Updated: 2020/01/16 18:59:34 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
-int	main(void)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char 	*s;
-	int	i;
-
-	i = 4;
-	s = "coucou";
-	printf("temoin :  %.s\n", s);
-	printf("temoin :  %.10s\n", s);
-	printf("temoin :  %0-51-s\n", s);
-	return (0);
+	while (n > 0 && *s1 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+		n--;
+	}
+	if (n == 0)
+		return (0);
+	else
+		return ((unsigned char)*s1 - (unsigned char)*s2);
 }

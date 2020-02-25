@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   testmain.c                                         :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/28 17:20:08 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/25 05:45:24 by yotillar         ###   ########.fr       */
+/*   Created: 2019/10/29 19:15:57 by yotillar          #+#    #+#             */
+/*   Updated: 2020/01/16 19:00:02 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
-int	main(void)
+char	*ft_strrchr(const char *s, int c)
 {
-	char 	*s;
-	int	i;
+	const char	*str;
 
-	i = 4;
-	s = "coucou";
-	printf("temoin :  %.s\n", s);
-	printf("temoin :  %.10s\n", s);
-	printf("temoin :  %0-51-s\n", s);
-	return (0);
+	str = s;
+	while (*str)
+		str++;
+	if (c == 0)
+		return ((char*)str);
+	else
+		while (str >= s)
+		{
+			if (*str == c)
+				return ((char*)str);
+			str--;
+		}
+	return (NULL);
 }

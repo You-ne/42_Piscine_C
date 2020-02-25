@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   testmain.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/28 17:20:08 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/25 05:45:24 by yotillar         ###   ########.fr       */
+/*   Created: 2019/09/28 04:44:25 by yotillar          #+#    #+#             */
+/*   Updated: 2020/01/13 19:38:19 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
-int	main(void)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char 	*s;
-	int	i;
+	unsigned int nb;
 
-	i = 4;
-	s = "coucou";
-	printf("temoin :  %.s\n", s);
-	printf("temoin :  %.10s\n", s);
-	printf("temoin :  %0-51-s\n", s);
-	return (0);
+	if (fd < 0)
+		return ;
+	nb = n;
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		nb = n * -1;
+	}
+	if (nb >= 10)
+		ft_putnbr_fd(nb / 10, fd);
+	ft_putchar_fd(nb % 10 + 48, fd);
 }

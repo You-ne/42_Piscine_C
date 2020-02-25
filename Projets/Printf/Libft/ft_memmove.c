@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_buff.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/01 19:02:53 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/22 21:16:28 by yotillar         ###   ########.fr       */
+/*   Created: 2019/10/29 18:32:48 by yotillar          #+#    #+#             */
+/*   Updated: 2020/01/13 18:50:54 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ft_printf.h"
+#include "libft.h"
 
-void	ft_buffing(char c, t_data *d)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	while (len > 0)
+	char	*strsrc;
+	char	*strdst;
+
+	strsrc = (char*)src;
+	strdst = (char*)dst;
+	if (!dst && !src && len != 0)
+		return (NULL);
+	if (strsrc < strdst)
 	{
-		while (len > 0 && d->b_i < 127)
+		strsrc = strsrc + len - 1;
+		strdst = strdst + len - 1;
+		while (len > 0)
 		{
-			d->buff[d->b_i] = *str;
-			d->b_i++;
-			str++;
+			*strdst-- = *strsrc--;
 			len--;
 		}
-		if (d->b_i == 127)
-		{
-			write(1, &d->buff, 127);
-			d->ret += 127;
-			while (d->b_i > 0)
-			{
-				d->buff[d->b_i] = '\0';
-				d->b_i--;
-			}
-		}
 	}
+	else
+		while (len > 0)
+		{
+			*strdst++ = *strsrc++;
+			len--;
+		}
+	return (dst);
 }

@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   testmain.c                                         :+:      :+:    :+:   */
+/*   ft_conv_d.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/28 17:20:08 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/25 05:45:24 by yotillar         ###   ########.fr       */
+/*   Created: 2020/02/22 19:11:48 by yotillar          #+#    #+#             */
+/*   Updated: 2020/02/22 21:32:39 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "../inc/ft_printf.h"
 
-int	main(void)
+char	*ft_d_conv(d)
 {
-	char 	*s;
-	int	i;
+	intmax_t	arg;
 
-	i = 4;
-	s = "coucou";
-	printf("temoin :  %.s\n", s);
-	printf("temoin :  %.10s\n", s);
-	printf("temoin :  %0-51-s\n", s);
+	arg = 0;
+	if (d->spe == 'd' || d->spe == 'i')
+		arg = (intmax_t)(va_arg(d->args, int));
+	return (ft_itoa_base(arg, 10));
+}
+
+int	ft_d_spec(d)
+{
+	d->arg = ft_d_conv(d);
+	ft_handler_num(d);
 	return (0);
 }

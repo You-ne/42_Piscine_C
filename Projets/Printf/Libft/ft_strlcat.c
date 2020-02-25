@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   testmain.c                                         :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/28 17:20:08 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/25 05:45:24 by yotillar         ###   ########.fr       */
+/*   Created: 2019/10/07 03:06:16 by yotillar          #+#    #+#             */
+/*   Updated: 2020/01/16 18:35:04 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
-int	main(void)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	char 	*s;
-	int	i;
+	size_t			res;
+	char			*d;
 
-	i = 4;
-	s = "coucou";
-	printf("temoin :  %.s\n", s);
-	printf("temoin :  %.10s\n", s);
-	printf("temoin :  %0-51-s\n", s);
-	return (0);
+	d = dst;
+	while (*d && d < dst + dstsize)
+		d++;
+	while (*src && (d < dst + dstsize - 1))
+		*d++ = *src++;
+	res = d - dst;
+	if (d < dst + dstsize)
+		*d = '\0';
+	while (*src++)
+		res++;
+	return (res);
 }

@@ -6,41 +6,84 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 17:36:11 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/02 06:21:52 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/02/25 03:28:57 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-void	ft_get_flags
+void	ft_initialize_specs(t_spec *specs)
 {
-	static 
+	specs[0].c = 'd';
+	specs[0].ptr = &ft_d_spec ;
+	specs[1].c = 'i';
+	specs[1].ptr = &ft_d_spec ;
+	specs[2].c = 'u';
+	specs[2].ptr = &ft_u_spec ;
+	specs[3].c = 'c';
+	specs[3].ptr = &ft_c_spec ;
+	specs[4].c = 's';
+	specs[4].ptr = &ft_s_spec ;
+	specs[5].c = 'p';
+	specs[5].ptr = &ft_p_spec ;
+	specs[6].c = 'x';
+	specs[6].ptr = &ft_x_spec ;
+	specs[7].c = 'X';
+	specs[7].ptr = &ft_x_spec ;
+	specs[8].c = '0';
+	specs[8].ptr = NULL;
 }
-void	ft_dispatch(const char *format, t_data *d)
+
+void	ft_end(t_data *d)
 {
-	static char		conv[NB_SPECS] = {'c', 's', 'p', 'd', 'i', 'u', 'x', 'X'};
-	static char		*(*TabF[NB_SPECS])(t_specs) =
+
+}
+
+int	ft_dispatch(t_data *d)
+{
+	int			i;
+	t_spec			specs[NB_SPECS + 1];
+
+	if (ft_check(d) == -1)
+		return (-1);
+	ft_initialize_specs(specs);
+	d->arg = NULL;
+	d->spe = FMT[FI];
+	i = 0;
+	while (specs[i].s != d->spe && specs[i].s != 0)
+		i++;
+	if (specs[i].c == 0)
+		return (ft_undef_spec(d));
+	return (specs[i].ptr(d));
+			//gérer erreurs quand mauvais spec
 }
 
 int		ft_printf(const char *format, ...)
 {
 	t_data				d;
 	unsigned long		i;
+	int	b_i2;
+	i = 0;
 
-	i = -1;
 	ft_init(&d);
-	va_start(d.arg, format);
-	while (format[++i])
+	va_start(d.args, format);
+	while (format[i] != '\0')
 	{
-		if (format[i] != '%')
-			ft_buffing(&format[i], &d, 1);
+		b_i2 == -1;
 		if (format[i] == '%')
 		{
-			ft_dispatch(&format[i], &d);
-			i += d.f_i;
+			b_i2 == d->b_i
+			d.frmt = (char*)&format[++i];
+			if (ft_dispatch(&d) == -1)
+				break;
+			i += d.fi;
 		}
+		if (b_i2 == d->b_i)
+			ft_buffing('%', d);
+		while (format[i] != '%' && format[i] != '\0')
+        		ft_buffing(format[i++], &d);
 	}
-	ft_display
+	//fonction d'affichage
 	va_end(d.arg);
 	return (d.ret)
 }
