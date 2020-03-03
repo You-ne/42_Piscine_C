@@ -6,19 +6,19 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 19:29:41 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/23 17:24:20 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/03/03 04:18:32 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-void		ft_handler_char(t_data *d)i
+void		ft_handler_char(t_data *d)
 {
 	int	i;
 	size_t	len;
 
 	i = 0;
-	if (d->flags[PREC] > 0) // troncaturer direct dans arg
+	if (d->flags[PREC] >= 0) // troncaturer direct dans arg
 		len = MIN((ft_strlen(d->arg))(d->flags[PREC]));
 	else
 		len = ft_strlen(d->arg);

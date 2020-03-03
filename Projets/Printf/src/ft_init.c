@@ -6,7 +6,7 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 17:52:44 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/22 04:45:37 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/03/02 22:20:52 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_check_initialize(t_data *d)
 		d->flags[d->fi] = 0;
 		d->fi++;
 	}
+	d->flags[PREC] = -1;
 	d->fi = 0;
 
 }

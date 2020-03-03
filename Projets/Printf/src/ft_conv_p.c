@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conv_d.c                                        :+:      :+:    :+:   */
+/*   ft_conv_p.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/22 19:11:48 by yotillar          #+#    #+#             */
-/*   Updated: 2020/03/03 01:00:55 by yotillar         ###   ########.fr       */
+/*   Created: 2020/03/02 22:34:27 by yotillar          #+#    #+#             */
+/*   Updated: 2020/03/03 01:00:47 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-char	*ft_d_conv(d)
+int	ft_p_spec(t_data *d)
 {
-	intmax_t	arg;
-
-	arg = 0;
-	if (d->spe == 'd' || d->spe == 'i')
-		arg = (intmax_t)(va_arg(d->args, int));
-	return (ft_itoa_base(arg, 10));
-}
-
-int	ft_d_spec(t_data *d)
-{
-	d->arg = ft_d_conv(d);
+	d->arg = ft_itoa_base(((uintmax_t)va_arg(*ap, void*)), 16);
 	ft_handler_num(d);
 	return (0);
 }

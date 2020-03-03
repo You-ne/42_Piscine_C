@@ -6,7 +6,7 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 17:20:08 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/25 05:45:24 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/03/03 01:02:28 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,15 @@
 int	main(void)
 {
 	char 	*s;
+	int	c;
 	int	i;
+	int	l;
 
-	i = 4;
+	l = -1;
+	i = 0;
+	c = -1;
 	s = "coucou";
-	printf("temoin :  %.s\n", s);
-	printf("temoin :  %.10s\n", s);
-	printf("temoin :  %0-51-s\n", s);
+	printf("%d\n", i);
+	printf("%*.*d\n", c, l, i);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 17:32:45 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/28 22:50:07 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/03/01 20:31:06 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ char	*ft_join(char *tab, char *buf)
 	ft_cpy(ptr, tab, i);
 	ft_cpy(ptr + i, buf, j);
 	ptr[i + j] = '\0';
-	if (tab != NULL)
-		ft_del(&tab);
+	ft_del(&tab);
 	return (ptr);
 }
 
@@ -62,8 +61,7 @@ int		ft_test(char **tab, char *buf, char **line)
 		*line = ft_strdup(*tab);
 		tmp = *tab;
 		*tab = ft_strdup((*tab + final + 1));
-		if (tmp != NULL)
-			ft_del(&tmp);
+		ft_del(&tmp);
 		return (1);
 	}
 	return (0);
@@ -84,6 +82,7 @@ int		get_next_line(int fd, char **line)
 		if (res == 1)
 			return (1);
 	}
+	b[res] = '\0';
 	if ((res = ft_test(&tab[fd], b, line)) == 1)
 		return (1);
 	else if (tab[fd] != NULL && ft_len(tab[fd]) > 0)
@@ -91,5 +90,6 @@ int		get_next_line(int fd, char **line)
 		*line = ft_strdup(tab[fd]);
 		ft_del(&tab[fd]);
 	}
+	ft_del(&tab[fd]);
 	return (0);
 }

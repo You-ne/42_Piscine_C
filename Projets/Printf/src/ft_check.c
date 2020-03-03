@@ -6,7 +6,7 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 22:18:45 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/25 23:35:08 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/03/02 22:19:16 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_check_flags(t_data *d)
 			d->flags[MINUS] = 1;
 		FI++;
 	}
-	d->flagend = '1';
+	d->flagend = '1'; // inutile?
 }
 
 void	ft_check_width(t_data *d)
@@ -40,7 +40,7 @@ void	ft_check_width(t_data *d)
 	}
 	else
 	{
-		while (ft_is_digit(FMT[FI++]))
+		while (ft_is_digit(FMT[FI++]));
 		if (FI - i > 0)
 		{
 			str = ft_substr(FMT, i, FI - i);

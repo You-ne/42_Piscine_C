@@ -6,7 +6,7 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 18:19:46 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/28 22:50:26 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/03/01 20:30:31 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@ int			ft_len(char *s)
 
 void		ft_del(char **tab)
 {
-	free(*tab);
-	*tab = NULL;
+	if (*tab != NULL)
+	{
+		free(*tab);
+		*tab = NULL;
+	}
 }
 
 void		ft_cpy(char *s1, char *s2, int n)

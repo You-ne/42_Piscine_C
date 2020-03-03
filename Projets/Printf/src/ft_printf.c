@@ -6,7 +6,7 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 17:36:11 by yotillar          #+#    #+#             */
-/*   Updated: 2020/02/25 03:28:57 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/03/02 22:38:21 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,18 +72,19 @@ int		ft_printf(const char *format, ...)
 		b_i2 == -1;
 		if (format[i] == '%')
 		{
-			b_i2 == d->b_i
+			b_i2 == d.b_i
 			d.frmt = (char*)&format[++i];
 			if (ft_dispatch(&d) == -1)
 				break;
 			i += d.fi;
 		}
-		if (b_i2 == d->b_i)
+		if (b_i2 == d.b_i)
 			ft_buffing('%', d);
 		while (format[i] != '%' && format[i] != '\0')
         		ft_buffing(format[i++], &d);
 	}
-	//fonction d'affichage
+	if (d.bi > 0)
+		ft_display(&d);
 	va_end(d.arg);
 	return (d.ret)
 }
