@@ -6,7 +6,7 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 19:29:41 by yotillar          #+#    #+#             */
-/*   Updated: 2020/03/03 04:18:32 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/03/05 19:33:27 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,24 @@ void		ft_handler_char(t_data *d)
 	size_t	len;
 
 	i = 0;
-	if (d->flags[PREC] >= 0) // troncaturer direct dans arg
+	if (d->spe == 'c')
+		len = 1;
+	else if (d->flags[PREC] >= 0) // troncaturer direct dans arg
 		len = MIN((ft_strlen(d->arg))(d->flags[PREC]));
 	else
 		len = ft_strlen(d->arg);
 	if (d->flags[WIDTH] > len)
 		ft_char_width(d, len);
-	else 
-		while (i < len)
+	else
+	{
+		if (d->spe == 'c' && d->arg[0] == '\0')
+		{
+			ft_display(d);
+			write(1, '\0', 1);
+		}
+		while (i < len && !(d->spe == 'c' && d->arg[0] == '\0'))
 			ft_buffing(d->arg[i++], d);
+	}
 }
 
 void		ft_handler_num(t_data *d)
@@ -43,4 +52,3 @@ void		ft_handler_num(t_data *d)
 		ft_buffing(d->arg[i], d);
 	ft_end(d);
 }
-
