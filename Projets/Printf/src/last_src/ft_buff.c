@@ -6,7 +6,7 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 19:02:53 by yotillar          #+#    #+#             */
-/*   Updated: 2020/03/05 16:56:16 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/03/07 23:17:18 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@ void	ft_buffing(char c, t_data *d)
 {
 	d->buff[d->b_i] = c;
 	d->b_i++;
-	str++;
-	len--;
 	if (d->b_i == 127)
 	{
 		write(1, &d->buff, 127);
-		d->ret += 127;
+	d->ret += 127;
 		while (d->b_i > 0)
 		{
 			d->buff[d->b_i] = '\0';
