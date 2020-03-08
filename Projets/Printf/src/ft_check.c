@@ -6,7 +6,7 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 22:18:45 by yotillar          #+#    #+#             */
-/*   Updated: 2020/03/02 22:19:16 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/03/09 00:08:56 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ft_check_flags(t_data *d)
 			d->flags[MINUS] = 1;
 		FI++;
 	}
-	d->flagend = '1'; // inutile?
 }
 
 void	ft_check_width(t_data *d)
@@ -31,7 +30,7 @@ void	ft_check_width(t_data *d)
 	int	i;
 	char	*str;
 
-	i == FI;
+	i = FI;
 		
 	if (FMT[FI] == '*')
 	{
@@ -40,7 +39,7 @@ void	ft_check_width(t_data *d)
 	}
 	else
 	{
-		while (ft_is_digit(FMT[FI++]));
+		while (ft_isdigit(FMT[FI++]));
 		if (FI - i > 0)
 		{
 			str = ft_substr(FMT, i, FI - i);
@@ -52,14 +51,14 @@ void	ft_check_width(t_data *d)
 
 void	ft_check_prec(t_data *d)
 {
-	int	i;
-	char	str;
+	int		i;
+	char	*str;
 
 	if (FMT[FI] == '.')
 	{
 		i = ++FI;
 		d->flags[PREC] = 0;
-		while (ft_is_digit(FMT[FI]))
+		while (ft_isdigit(FMT[FI]))
 			FI++;
 		if (FI - i > 0)
 		{
@@ -79,15 +78,15 @@ int 	ft_check(t_data *d)
 {
 	ft_check_initialize(d);
 	if (FMT[FI] == '-' || FMT[FI] == '0' || FMT[FI] == '.'
-			|| ft_is_digit(FMT[FI]))
+			|| ft_isdigit(FMT[FI]))
 	{
 		ft_check_flags(d);
 		ft_check_width(d);
 		ft_check_prec(d);
 	}
-	if (FI == ft_strlen(FMT) || (FMT[FI] != 'd' && FMT[FI] != 'i'
+	if (FI == (int)ft_strlen(FMT) || (FMT[FI] != 'd' && FMT[FI] != 'i'
 		&& FMT[FI] != 'u' && FMT[FI] != 'c' && FMT[FI] != 's'
-		&& FMT[FI] != 'p' && FMT[FI] != 'x' && FMT[FI] != 'X')
+		&& FMT[FI] != 'p' && FMT[FI] != 'x' && FMT[FI] != 'X'))
 		return (-1);
 	return (0);
 }

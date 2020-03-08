@@ -6,7 +6,7 @@
 #    By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/29 21:03:36 by yotillar          #+#    #+#              #
-#    Updated: 2020/02/04 21:06:38 by yotillar         ###   ########.fr        #
+#    Updated: 2020/03/08 23:09:07 by yotillar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS =  ft_atoi.c \
        ft_itoa.c \
+	   ft_itoa_base.c \
        ft_convert_base.c \
        ft_convert_base2.c \
        ft_calloc.c \

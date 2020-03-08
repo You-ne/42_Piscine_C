@@ -6,7 +6,7 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 19:29:41 by yotillar          #+#    #+#             */
-/*   Updated: 2020/03/05 19:33:27 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/03/09 00:37:13 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ void		ft_handler_char(t_data *d)
 	if (d->spe == 'c')
 		len = 1;
 	else if (d->flags[PREC] >= 0) // troncaturer direct dans arg
-		len = MIN((ft_strlen(d->arg))(d->flags[PREC]));
+		len = ft_min(ft_strlen(d->arg), d->flags[PREC]);
 	else
 		len = ft_strlen(d->arg);
-	if (d->flags[WIDTH] > len)
+	if (d->flags[WIDTH] > (int)len)
 		ft_char_width(d, len);
 	else
 	{
 		if (d->spe == 'c' && d->arg[0] == '\0')
 		{
 			ft_display(d);
-			write(1, '\0', 1);
+			write(1, d->arg, 1);
 		}
-		while (i < len && !(d->spe == 'c' && d->arg[0] == '\0'))
+		while (i < (int)len && !(d->spe == 'c' && d->arg[0] == '\0'))
 			ft_buffing(d->arg[i++], d);
 	}
 }

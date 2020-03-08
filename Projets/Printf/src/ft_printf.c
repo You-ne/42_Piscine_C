@@ -6,7 +6,7 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 17:36:11 by yotillar          #+#    #+#             */
-/*   Updated: 2020/03/02 22:38:21 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/03/09 00:04:01 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,10 @@ void	ft_initialize_specs(t_spec *specs)
 	specs[8].ptr = NULL;
 }
 
-void	ft_end(t_data *d)
-{
+//void	ft_end(t_data *d)
 
-}
 
-int	ft_dispatch(t_data *d)
+int		ft_dispatch(t_data *d)
 {
 	int			i;
 	t_spec			specs[NB_SPECS + 1];
@@ -50,10 +48,10 @@ int	ft_dispatch(t_data *d)
 	d->arg = NULL;
 	d->spe = FMT[FI];
 	i = 0;
-	while (specs[i].s != d->spe && specs[i].s != 0)
+	while (specs[i].c != d->spe && specs[i].c != 0)
 		i++;
-	if (specs[i].c == 0)
-		return (ft_undef_spec(d));
+	//if (specs[i].c == 0)
+	//	return (ft_undef_spec(d));
 	return (specs[i].ptr(d));
 			//gérer erreurs quand mauvais spec
 }
@@ -62,29 +60,29 @@ int		ft_printf(const char *format, ...)
 {
 	t_data				d;
 	unsigned long		i;
-	int	b_i2;
+	int					bi2;
 	i = 0;
 
 	ft_init(&d);
 	va_start(d.args, format);
 	while (format[i] != '\0')
 	{
-		b_i2 == -1;
+		bi2 = -1;
 		if (format[i] == '%')
 		{
-			b_i2 == d.b_i
+			bi2 = d.bi;
 			d.frmt = (char*)&format[++i];
 			if (ft_dispatch(&d) == -1)
 				break;
 			i += d.fi;
 		}
-		if (b_i2 == d.b_i)
-			ft_buffing('%', d);
+		if (bi2 == d.bi)
+			ft_buffing('%', &d);
 		while (format[i] != '%' && format[i] != '\0')
         		ft_buffing(format[i++], &d);
 	}
 	if (d.bi > 0)
 		ft_display(&d);
-	va_end(d.arg);
-	return (d.ret)
+	va_end(d.args);
+	return (d.ret);
 }

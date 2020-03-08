@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_buff.c                                          :+:      :+:    :+:   */
+/*   ft_min_max.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yotillar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/01 19:02:53 by yotillar          #+#    #+#             */
-/*   Updated: 2020/03/09 00:39:47 by yotillar         ###   ########.fr       */
+/*   Created: 2020/03/09 00:23:40 by yotillar          #+#    #+#             */
+/*   Updated: 2020/03/09 00:29:39 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ft_printf.h"
+#include "libft.h"
 
-void	ft_buffing(char c, t_data *d)
+long		ft_min(long a, long b)
 {
-	d->buff[d->bi] = c;
-	d->bi++;
-	if (d->bi == 127)
-	{
-		write(1, &d->buff, 127);
-	d->ret += 127;
-		while (d->bi > 0)
-		{
-			d->buff[d->bi] = '\0';
-			d->bi--;
-		}
-	}
+	if (a <= b)
+		return (a);
+	else
+		return (b);
+}
+
+long		ft_max(long a, long b)
+{
+	if (a >= b)
+		return (a);
+	else
+		return (b)
 }

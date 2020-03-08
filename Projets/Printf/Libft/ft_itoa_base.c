@@ -6,7 +6,7 @@
 /*   By: yotillar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 04:46:30 by yotillar          #+#    #+#             */
-/*   Updated: 2020/03/04 05:32:20 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/03/08 22:49:13 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,3 @@ char	*itoa_base(int value, int base)
 	}
 	return (str);
 }
-
-int main(int argc, const char *argv[])
-{
-	if (argc == 3)
-	{
-		printf("%s in base %s is %s\n", argv[1], argv[2], itoa_base(atoi(argv[1]), atoi(argv[2])));
-	}
-	return (0);
-}
-
-
