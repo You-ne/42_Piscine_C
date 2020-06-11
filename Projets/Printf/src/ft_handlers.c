@@ -6,7 +6,7 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 19:29:41 by yotillar          #+#    #+#             */
-/*   Updated: 2020/03/09 00:37:13 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/06/10 21:19:09 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void		ft_handler_char(t_data *d)
 	int	i;
 	size_t	len;
 
+//	printf("->Arg:[%s]", d->arg);
 	i = 0;
 	if (d->spe == 'c')
 		len = 1;
@@ -28,27 +29,29 @@ void		ft_handler_char(t_data *d)
 		ft_char_width(d, len);
 	else
 	{
-		if (d->spe == 'c' && d->arg[0] == '\0')
+		if (d->spe == 'c' && d->arg && d->arg[0] == '\0')
 		{
 			ft_display(d);
 			write(1, d->arg, 1);
 		}
-		while (i < (int)len && !(d->spe == 'c' && d->arg[0] == '\0'))
+		while (i < (int)len && !(d->spe == 'c' && d->arg && d->arg[0] == '\0'))
 			ft_buffing(d->arg[i++], d);
 	}
+	ft_end(d);
 }
 
 void		ft_handler_num(t_data *d)
 {
 	int	i;
 
+//	printf("->Arg:[%s]", d->arg);
 	i = -1;
-	if (d->flags[PREC] >= 0 && d->flags[PREC] >= d->flags[WIDTH])
+	if (d->flags[PREC] > 0 && d->flags[PREC] >= d->flags[WIDTH])
 		ft_num_only_prec(d);
 	else if (d->flags[WIDTH] > 0)
 		ft_num_width(d);
-	while (d->arg[++i] != '\0' && d->flags[WIDTH] == 0 
-				&& d->flags[PREC] == 0)
-		ft_buffing(d->arg[i], d);
+	else
+		while (d->arg[++i] != '\0' && d->flags[WIDTH] == 0 && d->flags[PREC] <= 0)
+			ft_buffing(d->arg[i], d);
 	ft_end(d);
 }

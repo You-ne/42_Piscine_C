@@ -6,7 +6,7 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 16:19:56 by yotillar          #+#    #+#             */
-/*   Updated: 2020/03/09 00:05:12 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/06/10 20:42:41 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 **---------------------------------- Headers -----------------------------------
 */
 
-# include "../Libft/libft.h"
+# include <stdio.h>
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
-
+# include <limits.h>
+# include <stdint.h>
 /*
 **-------------------------------- Structure & Define --------------------------
 */
@@ -104,4 +105,15 @@ char*	ft_conv_u(t_data *d);
 int		ft_x_spec(t_data *d);
 char	*ft_conv_x(t_data *d);
 
+void	ft_null(t_data *d);
+
+int	ft_atoi(const char *str);
+char	*ft_itoa_base(uintmax_t value, uintmax_t base, int neg);
+char	*ft_itoa_base2(uintmax_t value, uintmax_t base);
+long	ft_min(long a, long b);
+long	ft_max(long a, long b);
+size_t	ft_strlen(const char *s);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strdup(const char *s1);
+int	ft_isdigit(int c);
 #endif

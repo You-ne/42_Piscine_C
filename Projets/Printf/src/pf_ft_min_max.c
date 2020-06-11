@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display.c                                       :+:      :+:    :+:   */
+/*   pf_ft_min_max.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yotillar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 22:22:33 by yotillar          #+#    #+#             */
-/*   Updated: 2020/03/12 21:51:02 by yotillar         ###   ########.fr       */
+/*   Created: 2020/03/09 00:23:40 by yotillar          #+#    #+#             */
+/*   Updated: 2020/04/23 23:59:18 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-void		ft_display(t_data *d)
+long		ft_min(long a, long b)
 {
-	write(1, &d->buff, d->bi);
-	d->ret += d->bi;
-	d->bi = 0;
+	if (a <= b)
+		return (a);
+	else
+		return (b);
+}
+
+long		ft_max(long a, long b)
+{
+	if (a >= b)
+		return (a);
+	else
+		return (b);
 }

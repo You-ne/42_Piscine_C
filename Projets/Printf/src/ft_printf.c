@@ -6,7 +6,7 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 17:36:11 by yotillar          #+#    #+#             */
-/*   Updated: 2020/03/09 00:04:01 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/06/10 20:58:37 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,15 @@ void	ft_initialize_specs(t_spec *specs)
 	specs[8].ptr = NULL;
 }
 
-//void	ft_end(t_data *d)
+void	ft_end(t_data *d)
+{
+	if (d->arg)
+	{
+		if (d->spe != 's')
+			free(d->arg);
+		d->arg = NULL;
+	}
+}
 
 
 int		ft_dispatch(t_data *d)
@@ -42,11 +50,14 @@ int		ft_dispatch(t_data *d)
 	int			i;
 	t_spec			specs[NB_SPECS + 1];
 
+//	printf("->Dispatching");
 	if (ft_check(d) == -1)
 		return (-1);
+//	printf("->Checked");
 	ft_initialize_specs(specs);
 	d->arg = NULL;
-	d->spe = FMT[FI];
+	d->spe = FMT[FI++];
+//	printf("->Spec:%%%c", d->spe);
 	i = 0;
 	while (specs[i].c != d->spe && specs[i].c != 0)
 		i++;
@@ -60,24 +71,22 @@ int		ft_printf(const char *format, ...)
 {
 	t_data				d;
 	unsigned long		i;
-	int					bi2;
-	i = 0;
 
+	i = 0;
 	ft_init(&d);
 	va_start(d.args, format);
 	while (format[i] != '\0')
 	{
-		bi2 = -1;
 		if (format[i] == '%')
 		{
-			bi2 = d.bi;
+//			printf("// Treating %% format //\n");
 			d.frmt = (char*)&format[++i];
+//			printf("Format: [%s]", d.frmt);
 			if (ft_dispatch(&d) == -1)
 				break;
+//			printf("\n///Treated///\nFi = %d\n", d.fi);
 			i += d.fi;
 		}
-		if (bi2 == d.bi)
-			ft_buffing('%', &d);
 		while (format[i] != '%' && format[i] != '\0')
         		ft_buffing(format[i++], &d);
 	}

@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display.c                                       :+:      :+:    :+:   */
+/*   pf_ft_strlen.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yotillar <yotilar@student.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 22:22:33 by yotillar          #+#    #+#             */
-/*   Updated: 2020/03/12 21:51:02 by yotillar         ###   ########.fr       */
+/*   Created: 2019/09/28 21:28:05 by yotillar          #+#    #+#             */
+/*   Updated: 2020/06/10 21:00:24 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-void		ft_display(t_data *d)
+size_t		ft_strlen(const char *s)
 {
-	write(1, &d->buff, d->bi);
-	d->ret += d->bi;
-	d->bi = 0;
+	size_t	len;
+
+	len = 0;
+	if (s)
+	{	
+		while (*s++)
+			len++;
+	}	
+	return (len);
 }

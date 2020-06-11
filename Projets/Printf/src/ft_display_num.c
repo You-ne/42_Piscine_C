@@ -6,7 +6,7 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 19:51:19 by yotillar          #+#    #+#             */
-/*   Updated: 2020/03/09 00:54:51 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/03/15 04:49:01 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void		ft_num_width(t_data *d)
 	{
 		if (d->flags[MINUS] == 1)
 			ft_num_minus(d, len);
-		else if (d->flags[ZERO] == 1 && d->flags[PREC] == 0)
+		else if (d->flags[ZERO] == 1 && d->flags[PREC] < 0)
 			ft_num_zero(d, len);
 		else
 		{

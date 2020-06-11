@@ -6,18 +6,20 @@
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 21:25:09 by yotillar          #+#    #+#             */
-/*   Updated: 2020/03/05 18:32:07 by yotillar         ###   ########.fr       */
+/*   Updated: 2020/04/21 18:03:52 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-int	ft_conv_c(t_data)
+int	ft_conv_c(t_data *d)
 {
-	char[2]		s;
+	char		*s;
 	char		c;
 
-	c = (unsigned char)(va_arg)(d->args, int);
+	if (!(s = (char*)malloc(2)))
+		return (0);
+	c = (unsigned char)va_arg(d->args, int);
 	s[0] = c;
 	s[1] = '\0';
 	d->arg = s;
@@ -27,6 +29,6 @@ int	ft_conv_c(t_data)
 
 int	ft_c_spec(t_data *d)
 {
-	d->arg = ft_conv_c(d);
+	ft_conv_c(d);
 	return (0);
 }

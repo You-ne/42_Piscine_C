@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conv_d.c                                        :+:      :+:    :+:   */
+/*   pf_ft_substr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yotillar <yotillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/22 19:11:48 by yotillar          #+#    #+#             */
-/*   Updated: 2020/03/23 02:04:09 by yotillar         ###   ########.fr       */
+/*   Created: 2020/01/06 18:45:22 by yotillar          #+#    #+#             */
+/*   Updated: 2020/04/24 00:01:22 by yotillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-char	*ft_d_conv(t_data *d)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	intmax_t	arg;
-	int		neg;
+	char	*sub;
+	size_t	count;
+	size_t	size;
 
-	neg = 0;
-	arg = 0;
-	if (d->spe == 'd' || d->spe == 'i')
-		arg = (intmax_t)(va_arg(d->args, int));
-	if (arg < 0)
+	count = 0;
+	if (!s)
+		return (NULL);
+	if (ft_strlen(s) < start)
+		return (ft_strdup(""));
+	size = ft_strlen(&s[start]);
+	if (size < len)
+		len = size;
+	if (!(sub = (char*)malloc((len + 1) * sizeof(char))))
+		return (NULL);
+	while (count < len)
 	{
-		neg = 1;
-		arg *= -1;
+		sub[count] = s[start + count];
+		count++;
 	}
-	return (ft_itoa_base(arg, 10, neg));
-}
-
-int	ft_d_spec(t_data *d)
-{
-	d->arg = ft_d_conv(d);
-	ft_handler_num(d);
-	return (0);
+	sub[count] = '\0';
+	return (sub);
 }
