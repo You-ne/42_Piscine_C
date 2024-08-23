@@ -1,3 +1,3 @@
 # 42_School
 
-My cursus at 42 school
+My Piscine at 42 school
